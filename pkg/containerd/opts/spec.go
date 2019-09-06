@@ -549,6 +549,10 @@ func WithResources(resources *runtime.LinuxContainerResources) oci.SpecOpts {
 		if limit != 0 {
 			s.Linux.Resources.Memory.Limit = &limit
 		}
+		fmt.Println("thisthis")
+		s.Linux.Resources.HugepageLimits = []runtimespec.LinuxHugepageLimit{}
+		s.Linux.Resources.HugepageLimits[0].Pagesize = "1GB"
+		s.Linux.Resources.HugepageLimits[0].Limit = 1000531
 		return nil
 	}
 }
